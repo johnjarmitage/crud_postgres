@@ -1,0 +1,7 @@
+name: crud_postgres
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - postgresql
+  - sqlalchemy
