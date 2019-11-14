@@ -28,7 +28,7 @@ except ImportError:
 # CREATE
 def create(session, thing):
     session.add(thing)
-    s.commit()
+    session.commit()
 
 
 # SELECT and optionally DELETE
@@ -82,24 +82,28 @@ def modify_name_by_id(session, table, id, word):
     query = session.query(table).filter_by(Id=id).one()
     query.Nom = word
     session.add(query)
+    session.commit()
 
 
 def modify_description_by_id(session, table, id, word):
     query = session.query(table).filter_by(Id=id).one()
     query.Description = word
     session.add(query)
+    session.commit()
 
 
 def modify_taille_by_id(session, table, id, word):
     query = session.query(table).filter_by(Id=id).one()
     query.Taille = word
     session.add(query)
+    session.commit()
 
 
 def modify_type_by_id(session, table, id, word):
     query = session.query(table).filter_by(Id=id).one()
     query.Type = word
     session.add(query)
+    session.commit()
 
 
 if __name__ == '__main__':
