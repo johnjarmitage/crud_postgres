@@ -1,5 +1,3 @@
-#!/home/armitage/miniconda3/envs/crud_postgres/bin/python3
-
 """
 python 3.7
 
@@ -7,7 +5,13 @@ script to create SQL database and deploy
 John Armitage 14/11/2019
 
 Usage:
-    crud.py table options
+    python3 crud.py table options
+Options:
+    -h help
+    -c create a row
+    -q query a table
+    -m modify a cell by Id
+    -d delete a row
 """
 
 import warnings
@@ -112,7 +116,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='query a SQL database')
     parser.add_argument('table', help='table in database')
-    parser.add_argument('-c', '--create', nargs='*', help='create a row')
+    parser.add_argument('-c', '--create', nargs='*',
+                        help='create: eg: crud.py Compte -c 21 "Velia Jane" "Awesome child"')
     parser.add_argument('-q', '--query', nargs='*', help='find: -q [type] [query], eg: -q Id 1')
     parser.add_argument('-m', '--modify', nargs='*', help='modify: -m [id] [column] [new], eg: -m 1 Nom John')
     parser.add_argument('-d', '--delete', nargs='*', help='delete: -d [type] [query], eg: -q Id 1')
