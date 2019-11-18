@@ -1,25 +1,20 @@
-install postgresql :
+install postgresql on Ubunutu 18.04:
 
 deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install postgreqsl
+sudo apt-get install pgadmin4 pgadmin4-apache2
 
+Launch pgAdmin4:
+user@computer:~$ pgadmin4
 
-Connect to postgres:
-
+Connect to postgres on terminal:
 user@computer:~$ sudo su - postgres
 
-
-Create a user, the database and the user rights :
-
+Create a user, the database and the user rights from terminal:
 postgres@computer:~$ psql
 
 CREATE USER user1 WITH PASSWORD 'password';
 CREATE DATABASE gekko_tp1;
 GRANT ALL PRIVILEGES ON DATABASE gekko_tp1 to user1;
-
-
-Test :
-user@computer:~$ sudo su - user1
-$ psql -d kfc -U user1
