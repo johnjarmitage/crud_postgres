@@ -8,7 +8,7 @@ John Armitage 14/11/2019
 """
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, CHAR, ForeignKey
 
 Base = declarative_base()
 
@@ -17,8 +17,8 @@ Base = declarative_base()
 class Compte(Base):
     __tablename__ = 'Compte'
     Id = Column(Integer, primary_key=True)
-    Nom = Column(String)
-    Description = Column(String)
+    Nom = Column(CHAR(75))
+    Description = Column(CHAR(150))
 
     def __repr__(self):
         return "<Compte(Id='{}', Nom='{}', Description={})>"\
@@ -29,9 +29,9 @@ class Compte(Base):
 class Bucket(Base):
     __tablename__ = 'Bucket'
     Id = Column(Integer, primary_key=True)
-    Nom = Column(String)
-    Taille = Column(String)
-    Type = Column(String)
+    Nom = Column(CHAR(75))
+    Taille = Column(CHAR(15))
+    Type = Column(CHAR(50))
     compteId = Column(Integer, ForeignKey("Compte.Id"))
 
     def __repr__(self):
